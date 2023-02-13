@@ -1,5 +1,17 @@
 # Notes
 
-- `npm install commander && npm install -D typescript ts-node @tsconfig/node18`
+- `npm install commander json5 && npm install -D typescript ts-node @tsconfig/node18`
 - https://code.visualstudio.com/docs/getstarted/settings#_default-settings
 - https://github.com/commander-js/extra-typings
+- https://github.com/jasonkuhrt/molt/tree/main/packages/@molt/command
+- https://github.com/sindresorhus/load-json-file + https://github.com/sindresorhus/load-json-file/blob/v7.0.1/index.js
+- https://github.com/sindresorhus/write-json-file + https://github.com/sindresorhus/write-json-file/blob/v5.0.0/index.js
+- https://dev.to/omardulaimi/how-to-properly-handle-utf-8-bom-files-in-nodejs-1nmj
+- https://dmitripavlutin.com/promise-all/
+- https://dev.to/aminnairi/read-files-using-promises-in-node-js-1mg6
+- `npm install -D @types/vscode` + https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vscode (for VS Code Extension API)
+- https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html#general-types
+- https://github.com/npm/write-file-atomic
+- https://www.npmjs.com/package/comment-json
+- https://www.npmjs.com/package/json5 + https://github.com/json5/json5
+- https://github.com/microsoft/node-jsonc-parser

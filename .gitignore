@@ -2,3 +2,4 @@ node_modules/
 
 settings.json
 extensions.json
+*.code-profile

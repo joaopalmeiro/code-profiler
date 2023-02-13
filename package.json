@@ -8,7 +8,8 @@
         "dev:version": "ts-node -vv"
     },
     "dependencies": {
-        "commander": "10.0.0"
+        "commander": "10.0.0",
+        "json5": "2.2.3"
     },
     "devDependencies": {
         "@tsconfig/node18": "1.0.1",
