@@ -1,0 +1,18 @@
+{
+    "name": "code-profiler",
+    "description": "A Node.js CLI to generate a Profile file for VS Code from a .vscode folder.",
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "ts-node --project tsconfig.json src/index.ts",
+        "dev:config": "ts-node --project tsconfig.json --showConfig",
+        "dev:version": "ts-node -vv"
+    },
+    "dependencies": {
+        "commander": "10.0.0"
+    },
+    "devDependencies": {
+        "@tsconfig/node18": "1.0.1",
+        "ts-node": "10.9.1",
+        "typescript": "4.9.5"
+    }
+}
