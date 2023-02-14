@@ -24,6 +24,16 @@ npm run dev -- Python
 npm run test
 ```
 
+```bash
+npm run lint
+```
+
+## Deployment
+
+```bash
+npm pack --dry-run
+```
+
 ## References
 
 - https://blog.logrocket.com/building-typescript-cli-node-js-commander/
