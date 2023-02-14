@@ -22,37 +22,7 @@ import { readFile } from "fs/promises";
 import JSON5 from "json5";
 import type { JsonObject } from "type-fest";
 import { DESCRIPTION, NAME } from "./constants";
-import { getFilename } from "./utils";
-
-const getSettings = (settings: JsonObject): string => {
-  return JSON.stringify({ settings: JSON.stringify(settings, null, 4) });
-};
-
-const getExtensionsFromRecommendations = (
-  extensions: ExtensionsJson
-): string => {
-  const extensionsForProfile = extensions.recommendations.map((rec) => ({
-    identifier: { id: rec },
-  }));
-
-  return JSON.stringify(extensionsForProfile);
-};
-
-const assembleOutput = (
-  extensions: ExtensionsJson,
-  settings: JsonObject,
-  profileName: string
-): CodeProfile => {
-  return {
-    name: profileName,
-    settings: getSettings(settings),
-    extensions: getExtensionsFromRecommendations(extensions),
-  };
-};
-
-const getOutput = (output: CodeProfile): string => {
-  return JSON.stringify(output);
-};
+import { assembleOutput, getFilename, getOutput } from "./utils";
 
 // https://github.com/tj/commander.js/#declaring-program-variable
 // https://github.com/tj/commander.js/#typescript

@@ -19,3 +19,4 @@
 - `npm install -D jest ts-jest @types/jest` + `npx ts-jest config:init`
 - https://mark.smithson.me/jest-mocking-patterns/
 - `npm install -D publint` + https://publint.dev/rules
+- https://github.com/jest-community/jest-extended

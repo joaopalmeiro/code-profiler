@@ -3,3 +3,8 @@ root = true
 [*]
 end_of_line = lf
 insert_final_newline = true
+
+# https://stackoverflow.com/a/40348831
+# Ignore:
+[/assets/**]
+insert_final_newline = unset
