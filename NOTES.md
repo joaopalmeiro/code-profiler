@@ -1,6 +1,7 @@
 # Notes
 
 - `npm install commander json5 && npm install -D typescript ts-node @tsconfig/node18`
+- `npm install -D type-fest`
 - https://code.visualstudio.com/docs/getstarted/settings#_default-settings
 - https://github.com/commander-js/extra-typings
 - https://github.com/jasonkuhrt/molt/tree/main/packages/@molt/command

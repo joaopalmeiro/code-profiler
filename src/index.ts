@@ -2,14 +2,14 @@
 
 // https://github.com/microsoft/vscode/blob/1.75.0/src/vs/workbench/services/userDataProfile/common/userDataProfile.ts#L50
 // https://github.com/microsoft/vscode/blob/1.75.0/src/vs/workbench/services/userDataProfile/common/userDataProfile.ts#L138
+// https://github.com/microsoft/vscode/blob/1.75.0/src/vs/workbench/services/userDataProfile/browser/userDataProfileImportExportService.ts#L74
 
 // https://github.com/microsoft/vscode/blob/1.75.0/src/vs/workbench/services/userDataProfile/browser/extensionsResource.ts#L21
 // https://github.com/microsoft/vscode/blob/1.75.0/src/vs/workbench/services/userDataProfile/browser/extensionsResource.ts#L45
 // https://github.com/microsoft/vscode/blob/1.75.0/src/vs/platform/extensionManagement/common/extensionManagement.ts#L194
-
 // https://github.com/microsoft/vscode/blob/1.75.0/src/vs/workbench/services/extensionRecommendations/common/workspaceExtensionsConfig.ts#L25
 
-// https://github.com/microsoft/vscode/blob/1.75.0/src/vs/workbench/services/userDataProfile/browser/userDataProfileImportExportService.ts#L74
+// https://github.com/microsoft/vscode/blob/1.75.0/src/vs/workbench/services/userDataProfile/browser/settingsResource.ts#L20
 
 // https://nodejs.org/dist/latest-v18.x/docs/api/
 // https://nodejs.org/dist/latest-v18.x/docs/api/fs.html#fspromisesreadfilepath-options
@@ -20,14 +20,54 @@ import { Command } from "commander";
 import { writeFileSync } from "fs";
 import { readFile } from "fs/promises";
 import JSON5 from "json5";
+import type { JsonObject } from "type-fest";
+
+// https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces
+interface IExtensionsFile {
+  readonly recommendations: string[];
+}
+
+interface IProfileOutput {
+  readonly name: string;
+  readonly settings: string;
+  readonly extensions: string;
+}
 
 const NAME = "code-profiler";
 
-const getExtensionsFromRecommendations = (recommendations: string[]) => {
-  const extensions = recommendations.map((rec) => ({
+const getSettings = (settings: JsonObject): string => {
+  return JSON.stringify({ settings: JSON.stringify(settings, null, 2) });
+};
+
+const getExtensionsFromRecommendations = (
+  extensions: IExtensionsFile
+): string => {
+  const extensionsForProfile = extensions.recommendations.map((rec) => ({
     identifier: { id: rec },
   }));
-  return extensions;
+
+  return JSON.stringify(extensionsForProfile);
+};
+
+const assembleOutput = (
+  extensions: IExtensionsFile,
+  settings: JsonObject,
+  profileName: string
+): IProfileOutput => {
+  return {
+    name: profileName,
+    settings: getSettings(settings),
+    extensions: getExtensionsFromRecommendations(extensions),
+  };
+};
+
+const getOutput = (output: IProfileOutput): string => {
+  return JSON.stringify(output);
+};
+
+const getFilename = (name: string): string => {
+  const ext = "code-profile";
+  return `${name}.${ext}`;
 };
 
 // https://github.com/tj/commander.js/#declaring-program-variable
@@ -51,18 +91,16 @@ Promise.all([
   readFile("extensions.json", { encoding: "utf8" }),
   readFile("settings.json", { encoding: "utf8" }),
 ]).then(([extensionsJson, settingsJson]) => {
-  const extensions = JSON5.parse(extensionsJson);
-  const settings = JSON5.parse(settingsJson);
+  // https://bobbyhadz.com/blog/typescript-parse-json-string#using-a-type-assertion-to-type-the-result
+  // https://github.com/json5/json5/blob/v2.2.3/lib/parse.d.ts
+  // https://github.com/sindresorhus/type-fest#json
+  const extensions = JSON5.parse<IExtensionsFile>(extensionsJson);
+  const settings = JSON5.parse<JsonObject>(settingsJson);
 
-  const output = {
-    name: profileName,
-    extensions: JSON.stringify(
-      getExtensionsFromRecommendations(extensions.recommendations)
-    ),
-  };
+  const output = assembleOutput(extensions, settings, profileName);
   // console.log(output);
 
-  writeFileSync(`${profileName}.code-profile`, JSON.stringify(output));
+  writeFileSync(getFilename(profileName), getOutput(output));
 });
 
 // https://stackoverflow.com/a/22339262

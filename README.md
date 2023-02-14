@@ -17,7 +17,7 @@ npm run dev -- --help
 ```
 
 ```bash
-npm run dev -- Python
+npm run dev -- Node
 ```
 
 ## References
@@ -25,3 +25,4 @@ npm run dev -- Python
 - https://blog.logrocket.com/building-typescript-cli-node-js-commander/
 - https://dylanyoung.dev/insights/building-your-first-node-js-cli/ + https://github.com/dylanyoung-dev/first-node-cli
 - https://github.com/antfu/vscode-settings
+- https://github.com/bennycode/ts-node-starter
