@@ -36,7 +36,7 @@ interface IProfileOutput {
 const NAME = "code-profiler";
 
 const getSettings = (settings: JsonObject): string => {
-  return JSON.stringify({ settings: JSON.stringify(settings, null, 2) });
+  return JSON.stringify({ settings: JSON.stringify(settings, null, 4) });
 };
 
 const getExtensionsFromRecommendations = (

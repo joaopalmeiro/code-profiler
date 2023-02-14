@@ -17,7 +17,7 @@ npm run dev -- --help
 ```
 
 ```bash
-npm run dev -- Node
+npm run dev -- Python
 ```
 
 ## References
