@@ -78,7 +78,7 @@ const getFilename = (name: string): string => {
 const program = new Command()
   .name(NAME)
   .description(
-    "A Node.js CLI to generate a Profile file for VS Code from a .vscode folder."
+    "Generate a Profile file for VS Code from a .vscode folder. This tool supports extensions.json and settings.json files."
   )
   .argument("<name>", "Profile name.")
   .helpOption("-h, --help", `Display help for ${NAME}.`)
