@@ -21,26 +21,15 @@ import { writeFileSync } from "fs";
 import { readFile } from "fs/promises";
 import JSON5 from "json5";
 import type { JsonObject } from "type-fest";
-
-// https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces
-interface IExtensionsFile {
-  readonly recommendations: string[];
-}
-
-interface IProfileOutput {
-  readonly name: string;
-  readonly settings: string;
-  readonly extensions: string;
-}
-
-const NAME = "code-profiler";
+import { DESCRIPTION, NAME } from "./constants";
+import { getFilename } from "./utils";
 
 const getSettings = (settings: JsonObject): string => {
   return JSON.stringify({ settings: JSON.stringify(settings, null, 4) });
 };
 
 const getExtensionsFromRecommendations = (
-  extensions: IExtensionsFile
+  extensions: ExtensionsJson
 ): string => {
   const extensionsForProfile = extensions.recommendations.map((rec) => ({
     identifier: { id: rec },
@@ -50,10 +39,10 @@ const getExtensionsFromRecommendations = (
 };
 
 const assembleOutput = (
-  extensions: IExtensionsFile,
+  extensions: ExtensionsJson,
   settings: JsonObject,
   profileName: string
-): IProfileOutput => {
+): CodeProfile => {
   return {
     name: profileName,
     settings: getSettings(settings),
@@ -61,13 +50,8 @@ const assembleOutput = (
   };
 };
 
-const getOutput = (output: IProfileOutput): string => {
+const getOutput = (output: CodeProfile): string => {
   return JSON.stringify(output);
-};
-
-const getFilename = (name: string): string => {
-  const ext = "code-profile";
-  return `${name}.${ext}`;
 };
 
 // https://github.com/tj/commander.js/#declaring-program-variable
@@ -77,9 +61,7 @@ const getFilename = (name: string): string => {
 // https://github.com/tj/commander.js#usage
 const program = new Command()
   .name(NAME)
-  .description(
-    "Generate a Profile file for VS Code from a .vscode folder. This tool supports extensions.json and settings.json files."
-  )
+  .description(DESCRIPTION)
   .argument("<name>", "Profile name.")
   .helpOption("-h, --help", `Display help for ${NAME}.`)
   .parse(process.argv);
@@ -94,7 +76,7 @@ Promise.all([
   // https://bobbyhadz.com/blog/typescript-parse-json-string#using-a-type-assertion-to-type-the-result
   // https://github.com/json5/json5/blob/v2.2.3/lib/parse.d.ts
   // https://github.com/sindresorhus/type-fest#json
-  const extensions = JSON5.parse<IExtensionsFile>(extensionsJson);
+  const extensions = JSON5.parse<ExtensionsJson>(extensionsJson);
   const settings = JSON5.parse<JsonObject>(settingsJson);
 
   const output = assembleOutput(extensions, settings, profileName);

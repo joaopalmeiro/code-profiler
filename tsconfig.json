@@ -1,3 +1,8 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json"
+  // https://github.com/tsconfig/bases/blob/main/bases/node18.json
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "ts-node": {
+    // https://typestrong.org/ts-node/docs/options/#files
+    "files": true
+  }
 }

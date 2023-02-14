@@ -16,3 +16,5 @@
 - https://www.npmjs.com/package/comment-json
 - https://www.npmjs.com/package/json5 + https://github.com/json5/json5
 - https://github.com/microsoft/node-jsonc-parser
+- `npm install -D jest ts-jest @types/jest` + `npx ts-jest config:init`
+- https://mark.smithson.me/jest-mocking-patterns/
