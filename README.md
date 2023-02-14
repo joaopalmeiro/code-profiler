@@ -48,6 +48,28 @@ code-profiler --help
 code-profiler Python
 ```
 
+## Deployment
+
+```bash
+npm version patch
+```
+
+or
+
+```bash
+npm version minor
+```
+
+or
+
+```bash
+npm version major
+```
+
+```bash
+git push --follow-tags
+```
+
 ## References
 
 - https://blog.logrocket.com/building-typescript-cli-node-js-commander/
