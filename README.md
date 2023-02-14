@@ -28,10 +28,24 @@ npm run test
 npm run lint
 ```
 
-## Deployment
+```bash
+npm run build
+```
 
 ```bash
 npm pack --dry-run
+```
+
+```bash
+npm link
+```
+
+```bash
+code-profiler --help
+```
+
+```bash
+code-profiler Python
 ```
 
 ## References
@@ -41,3 +55,5 @@ npm pack --dry-run
 - https://github.com/antfu/vscode-settings
 - https://github.com/bennycode/ts-node-starter
 - https://github.com/apollographql/typescript-repo-template
+- https://devimalplanet.com/guide-how-to-create-a-nodejs-cli-command-line-interface
+- https://github.com/tailwindlabs/tailwindcss-container-queries

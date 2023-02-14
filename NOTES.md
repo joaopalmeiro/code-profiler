@@ -20,3 +20,4 @@
 - https://mark.smithson.me/jest-mocking-patterns/
 - `npm install -D publint` + https://publint.dev/rules
 - https://github.com/jest-community/jest-extended
+- https://stackoverflow.com/questions/19094630/how-do-i-uninstall-a-package-installed-using-npm-link: `npm ls --global` or `npm ls --global code-profiler` + `npm rm --global code-profiler`

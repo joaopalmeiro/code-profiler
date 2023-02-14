@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // https://code.visualstudio.com/updates/v1_75#_profiles
 
 // https://github.com/microsoft/vscode/blob/1.75.0/src/vs/workbench/services/userDataProfile/common/userDataProfile.ts#L50

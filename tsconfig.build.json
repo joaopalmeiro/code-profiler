@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  // https://www.typescriptlang.org/tsconfig
+  "compilerOptions": {
+    "outDir": "dist",
+    // https://www.typescriptlang.org/tsconfig#removeComments
+    "removeComments": true,
+    // https://www.typescriptlang.org/tsconfig#noEmitOnError
+    "noEmitOnError": true
+  },
+  "exclude": ["./src/*.test.ts"]
+}
