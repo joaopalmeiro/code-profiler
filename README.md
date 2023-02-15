@@ -28,7 +28,7 @@ or
 code-profiler
 ```
 
--
+and
 
 ```text
 Usage: code-profiler [options] <name>
