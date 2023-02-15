@@ -21,3 +21,4 @@
 - `npm install -D publint` + https://publint.dev/rules
 - https://github.com/jest-community/jest-extended
 - https://stackoverflow.com/questions/19094630/how-do-i-uninstall-a-package-installed-using-npm-link: `npm ls --global` or `npm ls --global code-profiler` + `npm rm --global code-profiler`
+- Delete a local Git tag: `git tag -d v0.1.0` + `git tag`
