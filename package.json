@@ -7,9 +7,9 @@
         "./dist/*"
     ],
     "keywords": [
-        "vscode",
         "visual studio code",
-        "vs code"
+        "vs code",
+        "vscode"
     ],
     "scripts": {
         "dev": "ts-node --project tsconfig.json src/index.ts",
