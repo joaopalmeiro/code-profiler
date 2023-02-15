@@ -1,5 +1,7 @@
 # code-profiler
 
+[![npm](https://img.shields.io/npm/v/code-profiler)](https://www.npmjs.com/package/code-profiler)
+
 A Node.js CLI to generate a [Profile file](https://code.visualstudio.com/updates/v1_75#_profiles) for VS Code from a `.vscode` folder. It supports `extensions.json` and `settings.json` files.
 
 ## Installation
