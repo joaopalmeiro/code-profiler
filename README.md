@@ -5,7 +5,6 @@ A Node.js CLI to generate a [Profile file](https://code.visualstudio.com/updates
 ## Installation
 
 ```bash
-# Recommended.
 npx code-profiler
 ```
 
