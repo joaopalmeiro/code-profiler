@@ -120,3 +120,5 @@ git push --follow-tags
 - https://devimalplanet.com/guide-how-to-create-a-nodejs-cli-command-line-interface
 - https://github.com/tailwindlabs/tailwindcss-container-queries
 - https://github.com/ahmadawais/create-node-cli
+- https://github.com/sindresorhus/boxen-cli
+- https://github.com/sindresorhus/capture-website-cli

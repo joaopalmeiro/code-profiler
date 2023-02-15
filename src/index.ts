@@ -56,10 +56,10 @@ Promise.all([
   // console.log(output);
 
   writeFileSync(getFilename(profileName), getOutput(output));
+
+  console.log("All done!");
 });
 
 // https://stackoverflow.com/a/22339262
 // console.log(process.env);
 // console.log(process.env.npm_package_version);
-
-console.log("All done!");
