@@ -20,7 +20,8 @@ npm install -g code-profiler
 ```text
 Usage: code-profiler [options] <name>
 
-Generate a Profile file for VS Code from a .vscode folder. This tool supports extensions.json and settings.json files.
+Generate a Profile file for VS Code from a .vscode folder. This tool supports
+extensions.json and settings.json files.
 
 Arguments:
   name        Profile name.

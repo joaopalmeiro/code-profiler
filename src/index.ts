@@ -36,6 +36,7 @@ const program = new Command()
   .description(DESCRIPTION)
   .argument("<name>", "Profile name.")
   .helpOption("-h, --help", `Display help for ${NAME}.`)
+  .configureHelp({ helpWidth: 80 })
   .parse(process.argv);
 
 const profileName = program.args[0];
