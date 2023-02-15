@@ -122,3 +122,4 @@ git push --follow-tags
 - https://github.com/ahmadawais/create-node-cli
 - https://github.com/sindresorhus/boxen-cli
 - https://github.com/sindresorhus/capture-website-cli
+- https://www.npmjs.com/package/generator-code
