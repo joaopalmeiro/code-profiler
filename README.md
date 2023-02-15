@@ -102,6 +102,10 @@ npm version major
 ```
 
 ```bash
+git tag
+```
+
+```bash
 git push --follow-tags
 ```
 
