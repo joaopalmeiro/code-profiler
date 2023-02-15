@@ -18,6 +18,18 @@ npm install -g code-profiler
 
 ## Usage
 
+```bash
+npx code-profiler
+```
+
+or
+
+```bash
+code-profiler
+```
+
+-
+
 ```text
 Usage: code-profiler [options] <name>
 
