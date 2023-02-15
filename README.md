@@ -2,6 +2,38 @@
 
 A Node.js CLI to generate a [Profile file](https://code.visualstudio.com/updates/v1_75#_profiles) for VS Code from a `.vscode` folder. It supports `extensions.json` and `settings.json` files.
 
+## Installation
+
+```bash
+# Recommended.
+npx code-profiler
+```
+
+or
+
+```bash
+npm install -g code-profiler
+```
+
+## Usage
+
+```text
+Usage: code-profiler [options] <name>
+
+Generate a Profile file for VS Code from a .vscode folder. This tool supports extensions.json and settings.json files.
+
+Arguments:
+  name        Profile name.
+
+Options:
+  -h, --help  Display help for code-profiler.
+```
+
+### Considerations
+
+- `code-profiler` expects the `extensions.json` and `settings.json` files to be in the current working directory.
+- `code-profiler` generates the output file in the current working directory.
+
 ## Development
 
 ```bash
@@ -48,6 +80,8 @@ code-profiler --help
 code-profiler Python
 ```
 
+Update the [Usage](#usage) section with information on how to use the CLI if needed.
+
 ## Deployment
 
 ```bash
@@ -79,3 +113,4 @@ git push --follow-tags
 - https://github.com/apollographql/typescript-repo-template
 - https://devimalplanet.com/guide-how-to-create-a-nodejs-cli-command-line-interface
 - https://github.com/tailwindlabs/tailwindcss-container-queries
+- https://github.com/ahmadawais/create-node-cli
