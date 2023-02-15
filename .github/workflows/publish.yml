@@ -1,5 +1,6 @@
 # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#node-version-file
 # https://github.com/bennycode/ts-node-starter/blob/main/.github/workflows/create-release.yml
+# https://github.com/joaopalmeiro/social-media-icons/blob/main/.github/workflows/npm-publish.yml
 
 name: Publish
 
@@ -16,6 +17,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
+          registry-url: "https://registry.npmjs.org"
       - run: npm install
       - run: npm publish
         env:
