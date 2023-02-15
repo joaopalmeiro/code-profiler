@@ -15,7 +15,8 @@
         "lint": "publint",
         "build": "tsc --project tsconfig.build.json",
         "build:config": "tsc --project tsconfig.build.json --showConfig",
-        "prepublishOnly": "npm run build"
+        "prepublishOnly": "npm run build",
+        "clean": "rimraf *.code-profile dist/"
     },
     "dependencies": {
         "commander": "10.0.0",
@@ -26,6 +27,7 @@
         "@types/jest": "29.4.0",
         "jest": "29.4.2",
         "publint": "0.1.9",
+        "rimraf": "4.1.2",
         "ts-jest": "29.0.5",
         "ts-node": "10.9.1",
         "type-fest": "3.5.7",
