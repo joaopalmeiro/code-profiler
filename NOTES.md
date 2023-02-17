@@ -24,3 +24,4 @@
 - Delete a local Git tag: `git tag -d v0.1.0` + `git tag`
 - `npm install -D rimraf`
 - https://github.com/isaacs/rimraf/issues/249
+- `code --list-extensions --show-versions`
