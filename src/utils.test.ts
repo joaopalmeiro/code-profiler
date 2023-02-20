@@ -22,12 +22,18 @@ const settingsJson: JsonObject = {
   "workbench.productIconTheme": "icons-carbon",
 };
 
+const versionsJson: VersionsJson = {
+  "antfu.icons-carbon": "0.2.6",
+  "astro-build.houston": "0.0.8",
+  "miguelsolorio.symbols": "0.0.9",
+};
+
 const codeProfile: CodeProfile = {
   name: "Test",
   settings:
     '{"settings":"{\\n    \\"workbench.colorTheme\\": \\"Houston\\",\\n    \\"workbench.iconTheme\\": \\"symbols\\",\\n    \\"workbench.productIconTheme\\": \\"icons-carbon\\"\\n}"}',
   extensions:
-    '[{"identifier":{"id":"antfu.icons-carbon"}},{"identifier":{"id":"astro-build.houston"}},{"identifier":{"id":"miguelsolorio.symbols"}}]',
+    '[{"identifier":{"id":"antfu.icons-carbon"},"version":"0.2.6"},{"identifier":{"id":"astro-build.houston"},"version":"0.0.8"},{"identifier":{"id":"miguelsolorio.symbols"},"version":"0.0.9"}]',
 };
 
 describe("getFilename", () => {
@@ -46,7 +52,10 @@ describe("getSettings", () => {
 
 describe("getExtensionsFromRecommendations", () => {
   it("generates a string of extensions ready for the output", () => {
-    const extensions = getExtensionsFromRecommendations(extensionsJson);
+    const extensions = getExtensionsFromRecommendations(
+      extensionsJson,
+      versionsJson
+    );
     expect(extensions).toEqual(codeProfile.extensions);
   });
 });
@@ -56,6 +65,7 @@ describe("assembleOutput", () => {
     const codeProfileOutput = assembleOutput(
       extensionsJson,
       settingsJson,
+      versionsJson,
       "Test"
     );
 
