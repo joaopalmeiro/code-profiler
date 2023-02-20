@@ -46,9 +46,9 @@ Options:
 
 ### Considerations
 
-- `code-profiler` expects the `extensions.json` and `settings.json` files to be in the current working directory.
+- `code-profiler` expects the `extensions.json`, `settings.json`, and `versions.json` files to be in the current working directory.
 - `code-profiler` generates the output file in the current working directory.
-- After importing a profile, reload VS Code, as the extension versions may differ from the ones you have installed.
+- When importing a profile and previewing one of the extensions, the version may not match the expected one, as the version shown will be that of the active profile. After importing the profile, check that the extensions are at the expected versions from the Extensions tab.
 
 ## Development
 
@@ -99,7 +99,7 @@ code-profiler --help
 ```
 
 ```bash
-code-profiler Python
+code-profiler Example
 ```
 
 Update the [Usage](#usage) section with information on how to use the CLI if needed.
