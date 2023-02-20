@@ -48,6 +48,7 @@ Options:
 
 - `code-profiler` expects the `extensions.json` and `settings.json` files to be in the current working directory.
 - `code-profiler` generates the output file in the current working directory.
+- After importing a profile, reload VS Code, as the extension versions may differ from the ones you have installed.
 
 ## Development
 
