@@ -23,7 +23,7 @@ import { writeFileSync } from "fs";
 import { readFile } from "fs/promises";
 import JSON5 from "json5";
 import type { JsonObject } from "type-fest";
-import { DESCRIPTION, NAME } from "./constants";
+import { DESCRIPTION, NAME, WIDTH } from "./constants";
 import { assembleOutput, getFilename, getOutput } from "./utils";
 
 // https://github.com/tj/commander.js/#declaring-program-variable
@@ -36,7 +36,7 @@ const program = new Command()
   .description(DESCRIPTION)
   .argument("<name>", "Profile name.")
   .helpOption("-h, --help", `Display help for ${NAME}.`)
-  .configureHelp({ helpWidth: 80 })
+  .configureHelp({ helpWidth: WIDTH })
   .parse(process.argv);
 
 const profileName = program.args[0];
@@ -45,14 +45,16 @@ const profileName = program.args[0];
 Promise.all([
   readFile("extensions.json", { encoding: "utf8" }),
   readFile("settings.json", { encoding: "utf8" }),
-]).then(([extensionsJson, settingsJson]) => {
+  readFile("versions.json", { encoding: "utf8" }),
+]).then(([extensionsJson, settingsJson, versionsJson]) => {
   // https://bobbyhadz.com/blog/typescript-parse-json-string#using-a-type-assertion-to-type-the-result
   // https://github.com/json5/json5/blob/v2.2.3/lib/parse.d.ts
   // https://github.com/sindresorhus/type-fest#json
   const extensions = JSON5.parse<ExtensionsJson>(extensionsJson);
   const settings = JSON5.parse<JsonObject>(settingsJson);
+  const versions = JSON5.parse<VersionsJson>(versionsJson);
 
-  const output = assembleOutput(extensions, settings, profileName);
+  const output = assembleOutput(extensions, settings, versions, profileName);
   // console.log(output);
 
   writeFileSync(getFilename(profileName), getOutput(output));

@@ -22,8 +22,10 @@ export const getExtensionsFromRecommendations = (
 export const assembleOutput = (
   extensions: ExtensionsJson,
   settings: JsonObject,
+  versions: VersionsJson,
   profileName: string
 ): CodeProfile => {
+  // HERE
   return {
     name: profileName,
     settings: getSettings(settings),

@@ -56,6 +56,12 @@ Options:
 nvm install && nvm use && node --version
 ```
 
+or
+
+```bash
+nvm use && node --version
+```
+
 ```bash
 npm install
 ```
@@ -65,7 +71,7 @@ npm run dev -- --help
 ```
 
 ```bash
-npm run dev -- Python
+npm run dev -- Example
 ```
 
 ```bash

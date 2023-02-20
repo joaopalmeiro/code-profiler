@@ -16,3 +16,11 @@ type CodeProfile = {
   readonly settings: string;
   readonly extensions: string;
 };
+
+// https://stackoverflow.com/a/72236324
+// https://www.typescriptlang.org/docs/handbook/2/objects.html#index-signatures
+// https://johndpelingo.com/notes/typescript-known-and-unknown-keys/
+// type VersionsJson = Record<string, string>;
+type VersionsJson = {
+  readonly [extension: string]: string;
+};
