@@ -10,10 +10,12 @@ export const getSettings = (settings: JsonObject): string => {
 };
 
 export const getExtensionsFromRecommendations = (
-  extensions: ExtensionsJson
+  extensions: ExtensionsJson,
+  versions: VersionsJson
 ): string => {
   const extensionsForProfile = extensions.recommendations.map((rec) => ({
     identifier: { id: rec },
+    version: versions[rec],
   }));
 
   return JSON.stringify(extensionsForProfile);
@@ -25,11 +27,10 @@ export const assembleOutput = (
   versions: VersionsJson,
   profileName: string
 ): CodeProfile => {
-  // HERE
   return {
     name: profileName,
     settings: getSettings(settings),
-    extensions: getExtensionsFromRecommendations(extensions),
+    extensions: getExtensionsFromRecommendations(extensions, versions),
   };
 };
 
