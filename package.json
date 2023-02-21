@@ -1,7 +1,7 @@
 {
     "name": "code-profiler",
     "description": "A Node.js CLI to generate a Profile file for VS Code from a .vscode folder.",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "license": "MIT",
     "bin": "./dist/index.js",
     "files": [
