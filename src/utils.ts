@@ -5,8 +5,14 @@ export const getFilename = (name: string): string => {
   return `${name}.${OUTPUT_EXTENSION}`;
 };
 
-export const getSettings = (settings: JsonObject): string => {
-  return JSON.stringify({ settings: JSON.stringify(settings, null, 4) });
+export const getSettings = (
+  settings: JsonObject,
+  indentation: number = 4
+): string => {
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+  return JSON.stringify({
+    settings: JSON.stringify(settings, null, indentation),
+  });
 };
 
 export const getExtensionsFromRecommendations = (
